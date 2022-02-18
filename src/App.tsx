@@ -17,7 +17,7 @@ export const App = () => {
       <Example_6>
         <SlowComponent />
       </Example_6>
-      {/*</Example_7>*/}
+      {/*<Example_7 />*/}
     </Fragment>
   );
 };
