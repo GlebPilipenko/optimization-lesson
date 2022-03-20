@@ -5,10 +5,6 @@ const CONTAINER_STYLES = {display: 'flex', flexDirection: 'column', gap: 10};
 type ButtonType = { onSubmit: () => void };
 type InputType = { onKeyDown: (e: React.KeyboardEvent) => void };
 
-// Task
-// If click Submit Input component not re-render
-// If onKeyDown press Button component not re-render
-
 export const Example_2 = () => {
   const emailRef = useRef<HTMLInputElement>(null);
 

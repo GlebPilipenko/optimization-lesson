@@ -1,4 +1,4 @@
-import {ChangeEvent, memo} from 'react';
+import {ChangeEvent, memo, useCallback} from 'react';
 
 const OPTION_VALUES = [10, 20, 30, 40, 50, 100];
 
@@ -58,7 +58,7 @@ type PropsType = {
   onChange: (value: ChangeEvent<HTMLInputElement>) => void
 }
 
-const SearchField = memo((props: PropsType) => {
+const SearchField = (props: PropsType) => {
   return (
     <input
       type="text"
@@ -66,7 +66,7 @@ const SearchField = memo((props: PropsType) => {
       onChange={props.onChange}
     />
   );
-});
+};
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Table
@@ -116,16 +116,20 @@ const Table = () => {
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Cards
 export const Cards = () => {
+  const onButtonClick = useCallback(() => {}, []);
+
+  const onSearchFieldChange = (value: ChangeEvent<HTMLInputElement>) => {};
+
   return (
     <div>
       <Button
         title="Some title"
-        onClick={() => {}}
+        onClick={onButtonClick}
       />
       <SubTitle subTittle="Some sub - title" />
       <SearchField
         searchValue="Search value"
-        onChange={(value: ChangeEvent<HTMLInputElement>) => {}}
+        onChange={onSearchFieldChange}
       />
       <Table />
 

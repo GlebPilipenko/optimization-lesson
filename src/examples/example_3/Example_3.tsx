@@ -14,29 +14,25 @@ export const Example_3 = () => {
   const [firstCount, setFirstCount] = useState(0);
   const [isChecked, setIsChecked] = useState(false);
 
-  const handlePlusCountValue = () => {
-    setFirstCount(firstCount + 1);
-  };
+  const handleSetIsChecked = () => setIsChecked(!isChecked);
 
-  const handleSetIsChecked = () => {
-    setIsChecked(!isChecked);
-  };
+  const handlePlusCountValueClick = () => setFirstCount(prevFirstCount => prevFirstCount + 1);
 
   return (
     <div style={{...CONTAINER_STYLES} as any}>
       <div>{`Count equal: ${firstCount}`}</div>
-      <Button onPlusCountValue={handlePlusCountValue} />
+      <Button onPlusCountValueClick={handlePlusCountValueClick} />
       <Checkbox isChecked={isChecked} onSetIsChecked={handleSetIsChecked} />
     </div>
   );
 };
 
-export const Button: FC<{ onPlusCountValue: () => void }> = ({onPlusCountValue}) => {
+export const Button: FC<{ onPlusCountValueClick: () => void }> = ({onPlusCountValueClick}) => {
   return (
     <div>
       <button
         style={{...FIRST_BUTTON_BACKGROUND, ...BUTTON_STYLES}}
-        onClick={onPlusCountValue}
+        onClick={onPlusCountValueClick}
       >
         Plus first counter
       </button>
