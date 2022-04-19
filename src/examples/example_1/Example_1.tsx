@@ -10,9 +10,9 @@ type PropsType = { value: string, onChange: (e: ChangeEvent<HTMLInputElement>) =
 export const Example_1 = () => {
   const [value, setValue] = useState('');
 
-  const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.currentTarget.value);
-  }, []);
+  };
 
   return (
     <div style={{...CONTAINER_STYLES} as any}>
